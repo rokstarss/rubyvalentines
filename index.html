@@ -1,12 +1,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=,z, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Valentines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" >
 </head>
 <body>
-    <h1>Valentines</h1>
-    <p> Happy Valentines Poop, I would like to know if you'd like to be my valentine this year? </p>
+    <div class="card">
+        <div class="heart"></div>
+        <h1>Happy Valentines</h1>
+        <p> You deserve the world and MORE ❣️ </p>
+
+        <!--CONFIRMATION-->
+        <button id="confirmLove" class="yes-button"> Do you love me?</button>
+        <div id="activitySection" class="hidden">
+            <label for="activity">Choose our Valentine's activity:</label>
+            <select id="activity">
+                <option value="dinner">Silly Dinner 🤯</option>
+                <option value="movie">Movies 😋</option>
+                <option value="bowling">Freaky Bowling 😉</option>
+            </select>
+            <button id="showActivity">Show Activity</button>
+            <div id="activityMessage" class="hidden"></div>
+        </div>
+
+        <!--Surprise Message-->
+        <button id="revealMessage">Click for a Surpise grr</button>
+        <div id="hiddenMessage" class="hidden">
+            <p>You're the best person in my life, i truly value your presense in my life.</p>
+         </div>
+        </div>
+
+        <!--BG Music-->
+        <audio id="backgroundMusic" loop>
+            <source src="valentine-music.mp3" type="audio/mpeg"
+            Your Browser does not support the audio element.
+        </audio>
+        <button id="toggleMusic">Play Music</button>
+
+        <script src="script.js"></script>
 </body>
 </html>
