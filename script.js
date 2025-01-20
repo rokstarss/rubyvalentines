@@ -47,3 +47,5 @@ musicButton.addEventListener("click", function() {
         musicButton.textContent = "Play Music";
     }
 });
+
+// fully fixed tested with codepen
