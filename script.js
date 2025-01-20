@@ -14,7 +14,7 @@ document.getElementById("confirmLove").addEventListener("click", function() {
 
     if (userResponse && userResponse.toLowerCase() === "yes") {
         alert("YES😈, LETS DO VALENTINES");
-        document.getElementById("activitySelection").classList.remove("hidden");
+        document.getElementById("activitySection").classList.remove("hidden");
     } else {
         alert("STOP STOP STOP SAY YES PLEASEEEE PLEASEEEE");
         button.classList.add("grow")
@@ -22,18 +22,17 @@ document.getElementById("confirmLove").addEventListener("click", function() {
     }
 });
 
-document.getElementById("showActivity").addEventListener("click", function(){
-    const activity = document.getElementById("activity").ariaValueMax;
-    const activityMessage = document.getElementById("activityMessage");
-
-    const messages = {
-        dinner: "Lets get a nummy dinner somewhere :)",
-        movie: "How about a nice little movie :drools everywhere:",
-        bowling: "how about some bowling, i might beat u tho :P",
-    };
-
-    activityMessage.textContent = messages[activity];
-    activityMessage.classList("hidden");
+document.getElementById("showActivity").addEventListener("click", function() { 
+  const activity = document.getElementById("activity").value; 
+  const activityMessage = document.getElementById("activityMessage"); 
+  
+  const messages = { 
+    dinner: "Let's get a nummy dinner somewhere :)",
+    movie: "How about a nice little movie :drools everywhere:", 
+    bowling: "How about some bowling, I might beat you though :P",
+  }; 
+  activityMessage.textContent = messages[activity];
+  activityMessage.classList.remove("hidden"); 
 });
 
 const music = document.getElementById("backgroundMusic");
