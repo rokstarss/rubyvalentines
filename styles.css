@@ -91,6 +91,10 @@ button:hover {
     left: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .heart:after {
     left: 50px;
     top: 0;
