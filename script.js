@@ -1,10 +1,12 @@
 // toggle the hidden messages
-document.getElementById("revealMessage").addEventListener("click", function() {
-    const hiddenMessage = document.getElementById("hiddenMessage");
-    hiddenMessage.classList.toggle("hidden");
-    this.textContent= hiddenMessage.classList.contains("hidden")
-    ? "Click for a Surpise grr"
-    : "Hide the Message";
+document.addEventListener("DOMContentLoaded", function() { 
+    document.getElementById("revealMessage").addEventListener("click", function() { 
+        const hiddenMessage = document.getElementById("hiddenMessage"); 
+        hiddenMessage.classList.toggle("hidden");
+        this.textContent = hiddenMessage.classList.contains("hidden")
+            ? "Click for a Surprise grr"
+            : "Hide the Message"; 
+    });
 });
 
 // required for the conformation
