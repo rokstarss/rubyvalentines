@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Valentines</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" >
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="card">
@@ -30,16 +30,35 @@
         <div id="hiddenMessage" class="hidden">
             <p>You're the best person in my life, i truly value your presense in my life.</p>
          </div>
+    </div>
+
+    <!--BG Music-->
+    <audio id="backgroundMusic" loop>
+        <source src="valentine-music.mp3" type="audio/mpeg">
+        Your Browser does not support the audio element.
+    </audio>
+    <button id="toggleMusic">Play Music</button>
+
+    <!-- Music Cover Flow -->
+    <div id="musicCoverFlow" class="hidden">
+        <label for="songSelector">Pick a Song:</label>
+        <select id="songSelector">
+            <option value="all-i-need.mp3">All I Need - Radiohead</option>
+            <option value="is-it-really-you.mp3">Is It Really You? - Loathe</option>
+            <option value="luna-2011.mp3">Luna (2011 Remake) - The Smashing Pumpkins</option>
+            <option value="soren.mp3">Soren - Beabadoobe</option>
+            <option value="iris.mp3">Iris - The Goo Goo Dolls</option>
+            <option value="glide.mp3">Glide - Lily Chou-Chou</option>
+            <option value="20191009-i-like-her.mp3">20191009 I Like Her - Mac DeMarco</option>
+            <option value="reality-surf.mp3">Reality Surf - Bladee</option>
+            <option value="futile-devices.mp3">Futile Devices (Doveman Remix) - Sufjan Stevens</option>
+            <option value="option.mp3">Option - Crosses</option>
+        </select>
+        <div id="coverArt">
+            <img id="coverImage" src="" alt="Album Cover">
         </div>
-
-        <!--BG Music-->
-        <audio id="backgroundMusic" loop>
-            <source src="valentine-music.mp3" type="audio/mpeg"
-            Your Browser does not support the audio element.
-        </audio>
-        <button id="toggleMusic">Play Music</button>
-
-        
+        <audio id="selectedSong" controls></audio>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>
