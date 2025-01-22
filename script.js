@@ -1,11 +1,10 @@
-// script.js
-
 // 3D Cover Flow Logic
 const covers = document.querySelectorAll('.cover');
 const coverFlow = document.getElementById('coverFlow');
 const selectedSongAudio = document.getElementById('selectedSong');
 const proceedButton = document.getElementById('proceedButton');
-
+const smallButtonContainer = document.getElementById('smallButtonContainer');
+const mainContent = document.getElementById('mainContent');
 let angle = 0;
 
 covers.forEach((cover, index) => {
@@ -22,6 +21,12 @@ covers.forEach((cover, index) => {
 
         // Show the proceed button
         proceedButton.classList.remove('hidden');
+
+        // Hide the cover flow and show the small button
+        coverFlow.classList.add('hidden');
+        selectedSongAudio.classList.add('hidden');
+        proceedButton.classList.add('hidden');
+        smallButtonContainer.classList.remove('hidden');
     });
 });
 
@@ -41,6 +46,25 @@ proceedButton.addEventListener('click', () => {
     document.getElementById('mainContent').classList.remove('hidden');
 });
 
+// Additional functionality for the small button
+document.getElementById('smallButton').addEventListener('click', () => {
+    const isCoverFlowHidden = coverFlow.classList.contains('hidden');
+
+    if (isCoverFlowHidden) {
+        coverFlow.classList.remove('hidden');
+        selectedSongAudio.classList.remove('hidden');
+        proceedButton.classList.add('hidden');
+        smallButtonContainer.classList.add('hidden');
+        mainContent.classList.add('hidden');
+    } else {
+        coverFlow.classList.add('hidden');
+        selectedSongAudio.classList.add('hidden');
+        proceedButton.classList.add('hidden');
+        smallButtonContainer.classList.remove('hidden');
+        mainContent.classList.remove('hidden');
+    }
+});
+
 // Existing Code
 
 // Toggle the hidden messages
@@ -48,7 +72,7 @@ document.getElementById("revealMessage").addEventListener("click", function() {
     const hiddenMessage = document.getElementById("hiddenMessage");
     hiddenMessage.classList.toggle("hidden");
     this.textContent = hiddenMessage.classList.contains("hidden")
-        ? "Click for a Surpise grr"
+        ? "Click for a Surprise grr"
         : "Hide the Message";
 });
 
