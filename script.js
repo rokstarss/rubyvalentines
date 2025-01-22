@@ -1,6 +1,7 @@
 // 3D Cover Flow Logic
 const covers = document.querySelectorAll('.cover');
 const coverFlow = document.getElementById('coverFlow');
+const coverFlowContainer = document.getElementById('coverFlowContainer');
 const selectedSongAudio = document.getElementById('selectedSong');
 const proceedButton = document.getElementById('proceedButton');
 const smallButtonContainer = document.getElementById('smallButtonContainer');
@@ -27,6 +28,10 @@ covers.forEach((cover, index) => {
         selectedSongAudio.classList.add('hidden');
         proceedButton.classList.add('hidden');
         smallButtonContainer.classList.remove('hidden');
+
+        // Move the Valentine's content to the middle
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('centered');
     });
 });
 
@@ -40,12 +45,6 @@ document.addEventListener('keydown', (event) => {
     coverFlow.style.transform = `rotateY(${angle}deg)`;
 });
 
-// Proceed button click event
-proceedButton.addEventListener('click', () => {
-    document.getElementById('coverFlowContainer').classList.add('hidden');
-    document.getElementById('mainContent').classList.remove('hidden');
-});
-
 // Additional functionality for the small button
 document.getElementById('smallButton').addEventListener('click', () => {
     // Toggle visibility between cover flow and main content
@@ -56,11 +55,13 @@ document.getElementById('smallButton').addEventListener('click', () => {
         selectedSongAudio.classList.remove('hidden');
         smallButtonContainer.classList.add('hidden');
         mainContent.classList.add('hidden');
+        mainContent.classList.remove('centered');
     } else {
         coverFlow.classList.add('hidden');
         selectedSongAudio.classList.add('hidden');
         smallButtonContainer.classList.remove('hidden');
         mainContent.classList.remove('hidden');
+        mainContent.classList.add('centered');
     }
 });
 
