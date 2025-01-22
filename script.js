@@ -48,18 +48,17 @@ proceedButton.addEventListener('click', () => {
 
 // Additional functionality for the small button
 document.getElementById('smallButton').addEventListener('click', () => {
+    // Toggle visibility between cover flow and main content
     const isCoverFlowHidden = coverFlow.classList.contains('hidden');
 
     if (isCoverFlowHidden) {
         coverFlow.classList.remove('hidden');
         selectedSongAudio.classList.remove('hidden');
-        proceedButton.classList.add('hidden');
         smallButtonContainer.classList.add('hidden');
         mainContent.classList.add('hidden');
     } else {
         coverFlow.classList.add('hidden');
         selectedSongAudio.classList.add('hidden');
-        proceedButton.classList.add('hidden');
         smallButtonContainer.classList.remove('hidden');
         mainContent.classList.remove('hidden');
     }
@@ -83,7 +82,7 @@ document.getElementById("confirmLove").addEventListener("click", function() {
 
     if (userResponse && userResponse.toLowerCase() === "yes") {
         alert("YES😈, LETS DO VALENTINES");
-        document.getElementById("activitySection").classList.remove("hidden");
+        document.getElementById("activitySection").classList.remove('hidden');
     } else {
         alert("STOP STOP STOP SAY YES PLEASEEEE PLEASEEEE");
         button.classList.add("grow");
