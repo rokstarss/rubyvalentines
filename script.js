@@ -59,9 +59,17 @@ document.getElementById('songSelector').addEventListener('change', function() {
     const selectedSongAudio = document.getElementById('selectedSong');
 
     // Update the cover image
-    coverImage.src = `https://github.com/rokstarss/rubyvalentines/images/${selectedSong.replace('.mp3', '.jpg')}`;
+    coverImage.src = `https://github.com/rokstarss/rubyvalentines/tree/main/images${selectedSong.replace('.mp3', '.jpg')}`;
+
+    // Pause background music if playing
+    if (!music.paused) {
+        music.pause();
+        musicButton.textContent = "Play Music";
+    }
 
     // Update the audio source and play the song
-    selectedSongAudio.src = `https://github.com/rokstarss/rubyvalentines/songs/${selectedSong}`;
-    selectedSongAudio.play();
+    selectedSongAudio.src = `https://github.com/rokstarss/rubyvalentines/tree/main/songs/${selectedSong}`;
+    selectedSongAudio.play().catch(error => {
+        console.error("Error playing the selected song:", error);
+    });
 });
