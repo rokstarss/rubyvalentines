@@ -1,5 +1,48 @@
 // script.js
 
+// 3D Cover Flow Logic
+const covers = document.querySelectorAll('.cover');
+const coverFlow = document.getElementById('coverFlow');
+const selectedSongAudio = document.getElementById('selectedSong');
+const proceedButton = document.getElementById('proceedButton');
+
+let angle = 0;
+
+covers.forEach((cover, index) => {
+    cover.style.transform = `rotateY(${index * (360 / covers.length)}deg) translateZ(300px)`;
+
+    cover.addEventListener('click', function() {
+        const songSrc = this.getAttribute('data-src');
+
+        // Update the audio source and play the song
+        selectedSongAudio.src = `https://raw.githubusercontent.com/rokstarss/rubyvalentines/main/songs/${songSrc}`;
+        selectedSongAudio.play().catch(error => {
+            console.error("Error playing the selected song:", error);
+        });
+
+        // Show the proceed button
+        proceedButton.classList.remove('hidden');
+    });
+});
+
+// Rotate cover flow with keyboard arrows
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+        angle -= 360 / covers.length;
+    } else if (event.key === 'ArrowLeft') {
+        angle += 360 / covers.length;
+    }
+    coverFlow.style.transform = `rotateY(${angle}deg)`;
+});
+
+// Proceed button click event
+proceedButton.addEventListener('click', () => {
+    document.getElementById('coverFlowContainer').classList.add('hidden');
+    document.getElementById('mainContent').classList.remove('hidden');
+});
+
+// Existing Code
+
 // Toggle the hidden messages
 document.getElementById("revealMessage").addEventListener("click", function() {
     const hiddenMessage = document.getElementById("hiddenMessage");
@@ -17,7 +60,6 @@ document.getElementById("confirmLove").addEventListener("click", function() {
     if (userResponse && userResponse.toLowerCase() === "yes") {
         alert("YES😈, LETS DO VALENTINES");
         document.getElementById("activitySection").classList.remove("hidden");
-        document.getElementById("musicCoverFlow").classList.remove("hidden");
     } else {
         alert("STOP STOP STOP SAY YES PLEASEEEE PLEASEEEE");
         button.classList.add("grow");
@@ -50,26 +92,4 @@ musicButton.addEventListener("click", function() {
         music.pause();
         musicButton.textContent = "Play Music";
     }
-});
-
-// Handle song selection and play the song
-document.getElementById('songSelector').addEventListener('change', function() {
-    const selectedSong = document.getElementById('songSelector').value;
-    const coverImage = document.getElementById('coverImage');
-    const selectedSongAudio = document.getElementById('selectedSong');
-
-    // Update the cover image
-    coverImage.src = `https://raw.githubusercontent.com/rokstarss/rubyvalentines/main/images/${selectedSong.replace('.mp3', '.jpg')}`;
-
-    // Pause background music if playing
-    if (!music.paused) {
-        music.pause();
-        musicButton.textContent = "Play Music";
-    }
-
-    // Update the audio source and play the song
-    selectedSongAudio.src = `https://raw.githubusercontent.com/rokstarss/rubyvalentines/main/songs/${selectedSong}`;
-    selectedSongAudio.play().catch(error => {
-        console.error("Error playing the selected song:", error);
-    });
 });
