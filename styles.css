@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     margin: 0;
     font-family: 'Dancing Script', cursive;
@@ -72,7 +73,7 @@ button:hover {
     position: relative;
     margin: 0 auto 20px;
     transform: rotate(-45deg);
-    animation: pulse 1.5 infinite;
+    animation: pulse 1.5s infinite;
 }
 
 .heart:before,
@@ -166,6 +167,31 @@ button:hover {
 
 #proceedButton:hover {
     background: #ff4757;
+}
+
+#smallButtonContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#smallButton {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#mainContent {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 #musicCoverFlow {
