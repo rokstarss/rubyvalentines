@@ -110,7 +110,7 @@ button:hover {
         transform: scale(1) rotate(-45deg);
     }
     50% {
-        transform: scale(1.1) rotate(-45deg)
+        transform: scale(1.1) rotate(-45deg);
     }
 }
 
@@ -124,6 +124,50 @@ button:hover {
 }
 
 /* Additional Styles for Music Cover Flow */
+#coverFlowContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px;
+}
+
+#coverFlow {
+    display: flex;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.cover {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 10px;
+    transform-origin: center;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.cover:hover {
+    transform: scale(1.2) translateZ(50px);
+}
+
+#proceedButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: #ff6b81;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#proceedButton:hover {
+    background: #ff4757;
+}
+
 #musicCoverFlow {
     position: absolute;
     top: 20px;
